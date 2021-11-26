@@ -4,7 +4,7 @@
 	"description": "- [Instrucciones en Español](README_ES.md)\r - [Instructions in English](README_EN.md)",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "cd src && node server"
 	},
 	"repository": {
 		"type": "git",

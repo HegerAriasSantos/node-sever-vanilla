@@ -16,7 +16,7 @@ exports.success = function (res, message, status, format) {
 		res.write(message);
 	} else {
 		res.writeHead(status, headers);
-		const body = { body: message, error: "" };
+		const body = { data: message };
 		res.write(JSON.stringify(body));
 	}
 
@@ -40,7 +40,7 @@ exports.error = function (res, message, status, format) {
 		res.write(message);
 	} else {
 		res.writeHead(status, headers);
-		const body = { body: "", error: message };
+		const body = { error: message };
 		res.write(JSON.stringify(body));
 	}
 

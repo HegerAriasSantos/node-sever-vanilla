@@ -9,7 +9,7 @@ For this first iteration the books will be available (page by page) in plain tex
 - Get list of books
 - Get a book
 - Get a book page in the desired format
-- Make use of friendly routes (for example: `/book/1` or `/book/1 /page/11/html`)
+- Make use of friendly routes (for example: `/book/1` or `/book/1/page/11/html`)
 - Provide seeders / migrations for the database (books with their pages)
 - Provide instruccions on project setup/configuration
 
