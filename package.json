@@ -1,0 +1,20 @@
+{
+	"name": "test-solution",
+	"version": "1.0.0",
+	"description": "- [Instrucciones en Español](README_ES.md)\r - [Instructions in English](README_EN.md)",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@gitlab.com/hegel.0218/test-solution.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://gitlab.com/hegel.0218/test-solution/issues"
+	},
+	"homepage": "https://gitlab.com/hegel.0218/test-solution#readme"
+}
