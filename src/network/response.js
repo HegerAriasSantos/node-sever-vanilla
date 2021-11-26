@@ -1,46 +1,48 @@
 exports.success = function (res, message, status, format) {
-	let contentType = "";
-
-	if (format === "txt") {
-		contentType = "text/plain";
-	}
-	if (format === "html") {
-		contentType = "text/html";
-	}
-
 	const headers = {
-		"Content-Type": contentType,
+		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Headers": "my-custom-header",
 		"Access-Control-Allow-Credentials": true,
 	};
 
-	const body = { body: message, error: "" };
+	if (format === "html") {
+		headers["Content-Type"] = "text/html";
+		res.writeHead(status, headers);
+		res.write(message);
+	} else if (format === "txt") {
+		headers["Content-Type"] = "text/plain";
+		res.writeHead(status, headers);
+		res.write(message);
+	} else {
+		res.writeHead(status, headers);
+		const body = { body: message, error: "" };
+		res.write(JSON.stringify(body));
+	}
 
-	res.writeHead(status, headers);
-	res.write(message);
 	res.end();
 };
 exports.error = function (res, message, status, format) {
-	let contentType = "";
-
-	if (format === "txt") {
-		contentType = "text/plain";
-	}
-	if (format === "html") {
-		contentType = "text/html";
-	}
-
 	const headers = {
-		"Content-Type": contentType,
+		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Headers": "my-custom-header",
 		"Access-Control-Allow-Credentials": true,
 	};
 
-	const body = { body: "", error: message };
+	if (format === "html") {
+		headers["Content-Type"] = "text/html";
+		res.writeHead(status, headers);
+		res.write(message);
+	} else if (format === "txt") {
+		headers["Content-Type"] = "text/plain";
+		res.writeHead(status, headers);
+		res.write(message);
+	} else {
+		res.writeHead(status, headers);
+		const body = { body: "", error: message };
+		res.write(JSON.stringify(body));
+	}
 
-	res.writeHead(status, headers);
-	res.write(body);
 	res.end();
 };

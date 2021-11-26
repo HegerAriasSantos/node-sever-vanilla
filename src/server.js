@@ -1,19 +1,26 @@
 const http = require("http");
 const get = require("./components/books/network");
 const response = require("./network/response");
-const getId = require("./utils/getId");
-
+const getParams = require("./utils/getParams");
 const server = http.createServer((req, res) => {
 	const { url, method } = req;
-	const Id = getId(url);
-
+	const [path, bookId, pageId, format] = getParams(url);
+	console.log(bookId, pageId, format);
+	console.log(format);
 	switch (method) {
 		case "GET":
-			response.success(res, "algo", 200, "txt");
+			get(path, bookId, pageId, format)
+				.then(data => {
+					response.success(res, data, 200, format);
+				})
+				.catch(err => {
+					response.error(res, err, 404, format);
+				});
+
 			break;
 
 		default:
-			response.error(req, res, "That method is not supported yet", 500, "txt");
+			response.error(res, "That method is not supported yet", 500, "txt");
 			break;
 	}
 });
