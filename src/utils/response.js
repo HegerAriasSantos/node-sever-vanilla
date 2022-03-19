@@ -1,5 +1,5 @@
 exports.success = function (res, message, status, format) {
-	const headers = {
+	const headers = {		
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Headers": "my-custom-header",
